@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jaya Teknik - Toko alat teknik terpercaya untuk kebutuhan industri, otomotif, dan manufaktur.">
+  <title>Beranda - Jaya Teknik</title>
+
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      background-color: #f5f7fa;
+      color: #333; line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      background: linear-gradient(90deg, #004aad, #0078ff);
+      color: white; text-align: center;
+      padding: 2.5rem 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    header h1 { font-size: 2.3rem; letter-spacing: 1.5px; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
+
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky; top: 0; z-index: 100;
+    }
+    nav ul {
+      list-style: none;
+      display: flex; justify-content: center;
+      gap: 2rem; padding: 1rem;
+    }
+    nav a {
+      color: #004aad; font-weight: 600; transition: 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: #0078ff;
+      border-bottom: 2px solid #0078ff;
+      padding-bottom: 4px;
+    }
+
+    .container {
+      display: flex; flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 3rem 2rem; max-width: 1100px;
+      margin: auto; gap: 2rem;
+    }
+    .info-card, .form-card {
+      background: white; border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 2rem; flex: 1 1 400px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .info-card:hover, .form-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .info-card h2 {
+      color: #004aad; border-bottom: 2px solid #0078ff;
+      display: inline-block; padding-bottom: 5px;
+      margin-bottom: 1rem;
+    }
+    .cta-section {
+      text-align: center; background: #eaf2ff;
+      padding: 3rem 1rem; border-radius: 12px;
+      margin: 3rem auto; width: 90%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .cta-section h2 { color: #004aad; margin-bottom: 1rem; }
+    .cta-section a button {
+      background: #0078ff; color: white; border: none;
+      padding: 0.9rem 1.8rem; border-radius: 8px;
+      font-size: 1rem; font-weight: 600; cursor: pointer;
+      transition: 0.3s;
+    }
+    .cta-section a button:hover { background: #004aad; }
+
+    footer {
+      background: #004aad; color: white;
+      text-align: center; padding: 1.5rem;
+      margin-top: 3rem; font-size: 0.95rem;
+    }
+    footer a { color: #ffee58; }
+    @media (max-width: 768px) {
+      nav ul { flex-direction: column; gap: 1rem; }
+      .container { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jaya Teknik</h1>
+    <p>Toko Sparepart Industri</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Beranda</a></li>
+      <li><a href="produk.html">Produk</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="info-card">
+      <h2>Tentang Kami</h2>
+      <p><b>Jaya Teknik</b> adalah toko penyedia sparepart mesin industri. Kami menyediakan produk seperti <b>Vanbelt, Timing Belt, Bearing</b>, dan <b>alat industri</b> untuk kebutuhan pabrik dan otomotif.</p>
+    </div>
+
+    <div class="form-card">
+      <h2>Butuh Bantuan?</h2>
+      <p>Ingin tahu lebih banyak tentang produk kami? Hubungi kami sekarang melalui halaman kontak.</p>
+      <a href="contact.html"><button>Hubungi Kami</button></a>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Temukan Produk Terbaik Kami</h2>
+    <p>Lihat berbagai produk alat teknik unggulan Jaya Teknik untuk menunjang kebutuhan industri Anda.</p>
+    <a href="produk.html"><button>Lihat Semua Produk</button></a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Jaya Teknik Indonesia | Semua Hak Dilindungi</p>
+  </footer>
+</body>
+</html>

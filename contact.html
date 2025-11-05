@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hubungi Jaya Teknik untuk informasi dan penawaran produk.">
+  <title>Kontak - Jaya Teknik</title>
+
+  <style>
+    body { background: #f5f7fa; font-family: "Poppins", sans-serif; color: #333; }
+    header { background: linear-gradient(90deg,#004aad,#0078ff); color: #fff; text-align: center; padding: 2rem 1rem; }
+    nav { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    nav ul { display: flex; justify-content: center; gap: 2rem; list-style: none; padding: 1rem; }
+    nav a { color: #004aad; font-weight: 600; text-decoration: none; transition: 0.3s; }
+    nav a:hover, nav a.active { color: #0078ff; border-bottom: 2px solid #0078ff; padding-bottom: 4px; }
+    .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 1rem; }
+    .card { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); flex: 1 1 400px; max-width: 600px; }
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+    .whatsapp-btn:hover { background: #1ebe5d; }
+    iframe { width: 100%; height: 300px; border: none; border-radius: 8px; margin-top: 1rem; }
+    footer { background: #004aad; color: white; text-align: center; padding: 1.5rem; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hubungi Jaya Teknik</h1>
+    <p>Kami Siap Membantu Anda</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="produk.html">Produk</a></li>
+      <li><a href="contact.html" class="active">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <h2>Informasi Kontak</h2>
+      <p><b>Alamat:</b> Jalan Gatot Subroto No. KM 2, RT.006/RW.5, Cimone, Tangerang</p>
+      <p><b>Telepon:</b> 
+        <a href="https://wa.me/6289699025717?text=Halo%20Jaya%20Teknik,%20saya%20ingin%20bertanya%20tentang%20produk%20Anda." target="_blank" style="color:#0078ff; text-decoration:underline;">
+          +62 896 9902 5717 (Chat WhatsApp)
+        </a>
+      </p>
+      <p><b>Email:</b> 
+        <a href="mailto:jayateknik.tangerang@gmail.com">jayateknik.tangerang@gmail.com</a>
+      </p>
+
+      <a class="whatsapp-btn" href="https://wa.me/6289699025717?text=Halo%20Jaya%20Teknik,%20saya%20ingin%20bertanya%20tentang%20produk%20Anda." target="_blank">
+        💬 Hubungi via WhatsApp
+      </a>
+
+      <!-- ✅ Google Maps dijamin tampil bahkan saat dibuka dari file lokal -->
+      <iframe 
+        src="https://maps.google.com/maps?q=Jaya%20Teknik%20Cimone%20Tangerang&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Jaya Teknik Indonesia | Semua Hak Dilindungi</p>
+  </footer>
+</body>
+</html>
