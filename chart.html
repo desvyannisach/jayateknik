@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keranjang - Jaya Teknik</title>
+
+<style>
+body{font-family:Poppins,sans-serif;background:#f5f7fa;margin:0}
+.container{max-width:900px;margin:2rem auto;background:#fff;padding:1.5rem;border-radius:12px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;border-bottom:1px solid #ddd;text-align:center}
+input,textarea,select{width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid #ccc}
+button{margin-top:1rem;padding:.8rem 1.2rem;border:none;border-radius:8px;background:#25D366;color:white;font-weight:600;cursor:pointer}
+img{width:60px;border-radius:6px}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>🛒 Keranjang Belanja</h2>
+<div id="cart"></div>
+
+<h2>Data Pembeli</h2>
+<input id="buyerName" placeholder="Nama Lengkap">
+<textarea id="buyerAddress" placeholder="Alamat Lengkap"></textarea>
+
+<h2>Pembayaran</h2>
+<select id="payment">
+<option value="">Pilih Pembayaran</option>
+<option>Transfer Bank</option>
+<option>QRIS</option>
+</select>
+
+<button onclick="checkout()">Checkout via WhatsApp</button>
+</div>
+
+<script>
+const cartDiv = document.getElementById("cart");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function rupiah(n){
+  return "Rp. " + n.toLocaleString("id-ID");
+}
+
+function renderCart(){
+  if(cart.length===0){
+    cartDiv.innerHTML="<p>Keranjang masih kosong</p>";
+    return;
+  }
+
+  let total = 0;
+  let html = "<table><tr><th>Produk</th><th>Qty</th><th>Harga</th></tr>";
+
+  cart.forEach(i=>{
+    total += i.price * i.qty;
+    html += `
+      <tr>
+        <td>
+          <img src="${i.image}"><br>${i.name}
+        </td>
+        <td>${i.qty}</td>
+        <td>${rupiah(i.price * i.qty)}</td>
+      </tr>
+    `;
+  });
+
+  html += `</table><h3>Total: ${rupiah(total)}</h3>`;
+  cartDiv.innerHTML = html;
+}
+
+renderCart();
+
+function checkout(){
+  const name = document.getElementById("buyerName").value;
+  const address = document.getElementById("buyerAddress").value;
+  const payment = document.getElementById("payment").value;
+
+  if(!name || !address || !payment){
+    alert("Lengkapi data pembeli!");
+    return;
+  }
+
+  let message = `Halo Jaya Teknik,%0A
+Nama: ${name}%0A
+Alamat: ${address}%0A
+Pembayaran: ${payment}%0A%0A
+Pesanan:%0A`;
+
+  cart.forEach(i=>{
+    message += `- ${i.name} x${i.qty} (${rupiah(i.price*i.qty)})%0A`;
+  });
+
+  message += `%0ATotal: ${rupiah(cart.reduce((a,b)=>a+b.price*b.qty,0))}`;
+
+  localStorage.removeItem("cart");
+  window.open("https://wa.me/6289699025717?text="+message);
+}
+</script>
+
+</body>
+</html>
