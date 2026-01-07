@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice - Jaya Teknik</title>
+
+<style>
+body {
+  font-family:Poppins, sans-serif;
+  background:#f5f7fa;
+}
+.invoice {
+  max-width:800px;
+  margin:2rem auto;
+  background:white;
+  padding:2rem;
+  border-radius:12px;
+}
+h1 {
+  color:#004aad;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:1rem;
+}
+th, td {
+  padding:10px;
+  border-bottom:1px solid #ddd;
+  text-align:left;
+}
+.total {
+  text-align:right;
+  font-size:1.3rem;
+  font-weight:700;
+  margin-top:1rem;
+}
+.btn {
+  margin-top:1.5rem;
+  padding:0.7rem 1.3rem;
+  border:none;
+  background:#004aad;
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="invoice" id="invoice"></div>
+
+<script>
+const order = JSON.parse(localStorage.getItem("lastOrder"));
+
+if (!order) {
+  document.getElementById("invoice").innerHTML = "Invoice tidak ditemukan";
+} else {
+  let html = `
+    <h1>INVOICE</h1>
+    <p><strong>ID:</strong> ${order.id}</p>
+    <p><strong>Nama:</strong> ${order.name}</p>
+    <p><strong>Alamat:</strong> ${order.address}</p>
+    <p><strong>Pembayaran:</strong> ${order.payment}</p>
+    <p><strong>Tanggal:</strong> ${order.date}</p>
+
+    <table>
+      <tr><th>Produk</th><th>Qty</th><th>Harga</th></tr>
+  `;
+
+  order.items.forEach(i => {
+    html += `<tr>
+      <td>${i.name}</td>
+      <td>${i.qty}</td>
+      <td>Rp. ${(i.price*i.qty).toLocaleString("id-ID")}</td>
+    </tr>`;
+  });
+
+  html += `
+    </table>
+    <div class="total">Total: Rp. ${order.total.toLocaleString("id-ID")}</div>
+    <button class="btn" onclick="window.print()">Cetak Invoice</button>
+  `;
+
+  document.getElementById("invoice").innerHTML = html;
+}
+</script>
+
+</body>
+</html>
